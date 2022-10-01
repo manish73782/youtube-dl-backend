@@ -2,6 +2,7 @@ const express = require("express")
 const app = express()
 const ytdl = require('ytdl-core');
 const cors = require("cors")
+const PORT = process.env.PORT || 3000;
 
 app.use(cors())
 
@@ -14,4 +15,4 @@ app.get("/:id", async (req, res) => {
     res.send(video);
 })
 
-app.listen(3000);
+app.listen(PORT, () => console.log(`Listing at PORT: ${PORT}`));

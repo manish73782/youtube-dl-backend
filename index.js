@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 
 app.post("/search", (req, res) => {
     ytdl.getInfo(req.body.id)
-        .then(video => res.send(video))
+        .then(video => res.send({ formats: video.formats, videoDetails: video.videoDetails }))
         .catch(() => res.status(500).send("No Video Found"))
 })
 

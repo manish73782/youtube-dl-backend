@@ -8,10 +8,6 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.get("/", (req, res) => {
-    res.send("Ping");
-})
-
 app.post("/search", (req, res) => {
     ytdl.getInfo(req.body.id)
         .then(video => res.send({ formats: video.formats, videoDetails: video.videoDetails }))

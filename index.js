@@ -14,4 +14,9 @@ app.post("/search", (req, res) => {
         .catch(() => res.status(500).send("No Video Found"))
 })
 
+app.post("/download", (req, res) => {
+    const { url } = req.body.url;
+    res.sendFile(url)
+})
+
 app.listen(PORT, () => console.log(`Listing at PORT: ${PORT}`));
